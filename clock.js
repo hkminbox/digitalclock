@@ -1,3 +1,12 @@
+var flags = true;
+if(flags === true)
+{
+	var CHECK_LOG =true;
+	var SECOND_DELAY =true;
+}
+
+var secHistory;
+
 function setup()
 {
 	createCanvas(900,300);
@@ -12,7 +21,18 @@ function draw()
 	let hr = hour();
 	let min = minute();
 	let sec = second();
-	console.log((hr%12)+ ' : ' + min + ' : ' + sec);
+	if(CHECK_LOG && SECOND_DELAY)
+	{
+		console.log((hr%12)+ ' : ' + min + ' : ' + sec);
+		secHistory = sec
+		SECOND_DELAY = false;
+	}
+	if(sec != secHistory)
+	{
+		SECOND_DELAY = true;
+
+	}
+
 
 	fill(255);
 	noStroke();
