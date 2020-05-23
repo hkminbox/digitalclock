@@ -2,6 +2,6 @@ A p5.js digital clock
 
 CHANGELOG
 ---------
-Monoton-Regular.ttf font added.
-Time displayed.
-Logs added (Added flags to display logs at an interval of 1 second.)
+Corrected format by adding zeros when either min/sec/hour is single digit.
+Added Console logs and flags.
+Made the logs to appear only when sec changes.

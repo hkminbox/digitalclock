@@ -1,11 +1,15 @@
-var flags = true;
+var flags = false;
 if(flags === true)
 {
 	var CHECK_LOG =true;
 	var SECOND_DELAY =true;
+	var CHECK_LOG_DISPLAY = true;
+	var SECOND_DELAY_DISPLAY =true;
 }
 
 var secHistory;
+var secHistory2;
+
 
 function setup()
 {
@@ -38,20 +42,33 @@ function draw()
 	noStroke();
 	textFont(font);
     textSize(50);
-    if((hr%12)<10)
+	if((hr%12)<10)
     {
-		text('0' + (hr%12)+ ' : ' + min + ' : ' + sec, 10, 200);
+		hr = '0' + hr%12;
     }
-    else if(min<10)
+    if(min<10)
     {
-		text((hr%12)+ ' : ' + '0' +  min + ' : ' + sec , 10, 200);
+		min =  '0' +  min ;
     }
-    else if(sec<10)
+    if(sec<10)
     {
-		text((hr%12)+ ' : ' + min + ' : ' + '0' +  sec, 10, 200);
+		sec =  '0' +  sec;
     }
-    else
-    {
-		text((hr%12)+ ' : ' + min + ' : ' + sec, 10, 200);
-    }
+    
+	text(hr + ' : ' + min + ' : ' + sec, 10, 200);
+	if(CHECK_LOG_DISPLAY && SECOND_DELAY_DISPLAY)
+	{
+		console.log('Display format: ' + hr + ' : ' + min + ' : ' + sec);
+		secHistory2 = sec
+		SECOND_DELAY_DISPLAY = false;
+	}
+	if(sec != secHistory)
+	{
+		SECOND_DELAY_DISPLAY = true;
+
+	}
 }
+
+
+
+
