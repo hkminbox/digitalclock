@@ -1,4 +1,4 @@
-var flags = true;
+var flags = false;
 if(flags === true)
 {
 	var CHECK_LOG =true;
@@ -19,7 +19,7 @@ function setup()
 {
 	createCanvas(900,300);
 	font = loadFont('assets/Monoton-Regular.ttf');
-  	font2 = loadFont('assets/SourceSansPro-Regular.ttf');
+  	font2 = loadFont('assets/Orbitron-VariableFont_wght.ttf');
 }
 
 function draw()
@@ -66,6 +66,7 @@ function draw()
 	fill(255);
 	noStroke();
 	textFont(font);
+	textAlign(LEFT);
     textSize(50);
 	if((hr%12)<10)
     {
@@ -81,6 +82,14 @@ function draw()
     }
     
 	text(hr + ' : ' + min + ' : ' + sec, 10, 200);
+
+	textFont(font2);
+    textSize(30);
+    textAlign(RIGHT);
+	text(d, 850, 150);
+	text(m, 850, 190);
+	text(y, 850, 230);
+
 	if(CHECK_LOG_DISPLAY && SECOND_DELAY_DISPLAY)
 	{
 		console.log('Display format: ' + hr + ' : ' + min + ' : ' + sec);
