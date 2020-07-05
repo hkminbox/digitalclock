@@ -26,7 +26,7 @@ function draw()
 {
 	background(51);
 
-	let hr = hour();
+	let hr = 12;
 	let min = minute();
 	let sec = second();
 	let d = day();
@@ -84,13 +84,17 @@ function draw()
     {
 		hr = '0' + hr;
     }*/
+    let h=hr;
 	if((hr%12)<10)
     {
-		hr = '0' + hr%12;
+    	if(h!=12)
+    	{
+			hr = '0' + hr%12;
+    	}
     }
     else
-    {
-    	hr = hr%12;
+    {	
+    		hr = hr%12;
     }
     if(min<10)
     {
