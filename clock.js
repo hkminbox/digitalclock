@@ -26,7 +26,7 @@ function draw()
 {
 	background(51);
 
-	let hr = 12;
+	let hr = hour();
 	let min = minute();
 	let sec = second();
 	let d = day();
