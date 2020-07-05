@@ -32,7 +32,16 @@ function draw()
 	let d = day();
 	let m = month();
 	let y = year();
+	let ampm;
 
+	if(hr>=12)
+	{
+		ampm = 'PM';
+	}
+	else
+	{
+		ampm = 'AM';
+	}
 	m = monthName[m-1];
 
 
@@ -68,6 +77,7 @@ function draw()
 	textFont(font);
 	textAlign(LEFT);
     textSize(50);
+
 	if((hr%12)<10)
     {
 		hr = '0' + hr%12;
@@ -83,6 +93,10 @@ function draw()
     
 	text(hr + ' : ' + min + ' : ' + sec, 10, 200);
 
+	textFont(font);
+	textSize(30);
+	text(ampm, 220, 240);
+
 	textFont(font2);
     textSize(30);
     textAlign(RIGHT);
@@ -92,7 +106,7 @@ function draw()
 
 	if(CHECK_LOG_DISPLAY && SECOND_DELAY_DISPLAY)
 	{
-		console.log('Display format: ' + hr + ' : ' + min + ' : ' + sec);
+		console.log('Display format: ' + hr + ' : ' + min + ' : ' + sec +' '+ ampm);
 		secHistory2 = sec
 		SECOND_DELAY_DISPLAY = false;
 	}
