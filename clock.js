@@ -78,9 +78,19 @@ function draw()
 	textAlign(LEFT);
     textSize(50);
 
+/*	METHOD 1 for 24hr format.
+    hr = hr%12;
+	if((hr)<10)
+    {
+		hr = '0' + hr;
+    }*/
 	if((hr%12)<10)
     {
 		hr = '0' + hr%12;
+    }
+    else
+    {
+    	hr = hr%12;
     }
     if(min<10)
     {
@@ -110,7 +120,7 @@ function draw()
 		secHistory2 = sec
 		SECOND_DELAY_DISPLAY = false;
 	}
-	if(sec != secHistory)
+	if(sec != secHistory2)
 	{
 		SECOND_DELAY_DISPLAY = true;
 
